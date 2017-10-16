@@ -1,38 +1,83 @@
 #include <stdio.h>
 #include <stdlib.h>
-int i=1;
-float argv[100];
-void push(char a){
-if(i>99)
-    prov();
- else
- {
-     argv[i]=a;
-     i++;
- }
-
-//return a;
+int i=0;
+float array[100];
+void push(float a) //zagonyaet 4islo v stek
+{
+    array[i]=a;
+    i++;
 }
-void pop(char a){
+float pop() //vidaet 4islo iz steka
+{
+    float c=array[--i];
+    array[i]='\0';
+    return c;
 
 }
-void prov(){
- if (i==0)
-        printf("\nstek is empty");
-    else
-        if (i>0&&i<99)
-            printf("\nstek  is no empty");
-        else
-            printf("\nstek is full");
-}
+int main()
+{
+    float a,pop2,pop1;
+    int k=1,drob=0;
+    char simvol;
+    while ((a = getchar()) != '\n') //vvod s claviatyri
+        {
+         if (a=='-')
+            k=-1;
+         if (a>= '0' && a <= '9' )
+         {
+            pop2=k*(a-'0');
+            push(pop2); //otpravlyaet tsifry v stek
+            k=1;
+            if (drob==1)
+            {
+            pop1=pop()/10;
+            pop2=pop();
+            if (pop2<0)
+                pop2=pop1-pop2;
 
-int main(int argc, char *argv[i]){
-    if(argc==1)
-    printf("Enter number\n");
-    else
-        Print("%c", argv[i]);
+            else
+                pop2=pop2+pop1;
+            drob=0;
+            push(pop2);
+            }
+         }
+         if (a==','||a=='.')
+            drob=1;
+         if (a==' ')
+         {
+            pop1=pop();
+            pop2=pop()*10;
+            if (pop2<0)
+                pop2=pop2-pop1;
+            else
+                pop2=pop2+pop1;
+            push(pop2);
+         }
+         if ((a=='+'||a=='-'||a=='*'||a=='/')&& count>=2)
+            {
+                simvol=a;
+                switch(simvol)
+                    {
+                        case '+': pop2=pop();
+                               // printf("\n%f\n",pop2);
+                                  push(pop()+pop2);
+                                  break;
+                        case '-': pop2=pop();
+                                  push(pop()-pop2);
+                                  break;
+                        case '*': pop2=pop();
+                                  push(pop()*pop2);
+                                  break;
+                        case '/': pop2=pop();
+                                  if (pop2!=0.0)
+                                  push(pop() / pop2);
+                                  else printf("na nol' delit' nel'zya");
+                                  break;
+                    }
 
-
-
+            }
+        }
+    printf("%.2f",pop());//vivod kone4nogo 4isla
     return 0;
+
 }
