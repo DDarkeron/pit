@@ -30,6 +30,7 @@ int main(int argc, char *argv[i]){
     if(argc==1)
     printf("Enter number\n");
     else
+        Print("%c", argv[i]);
 
 
 
