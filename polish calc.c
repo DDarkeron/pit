@@ -2,12 +2,12 @@
 #include <stdlib.h>
 int i=0;
 float array[100];
-void push(float a) //zagonyaet 4islo v stek
+void push(float a) //puts number into stack
 {
     array[i]=a;
     i++;
 }
-float pop() //vidaet 4islo iz steka
+float pop() //extracts number from stack
 {
     float c=array[--i];
     array[i]='\0';
@@ -19,14 +19,14 @@ int main()
     float a,pop2,pop1;
     int k=1,drob=0;
     char simvol;
-    while ((a = getchar()) != '\n') //vvod s claviatyri
+    while ((a = getchar()) != '\n') //entering number
         {
          if (a=='-')
             k=-1;
          if (a>= '0' && a <= '9' )
          {
             pop2=k*(a-'0');
-            push(pop2); //otpravlyaet tsifry v stek
+            push(pop2); //puts number into stack
             k=1;
             if (drob==1)
             {
@@ -77,7 +77,7 @@ int main()
 
             }
         }
-    printf("%.2f",pop());//vivod kone4nogo 4isla
+    printf("%.2f",pop());//shows last number
     return 0;
 
 }
