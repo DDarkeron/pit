@@ -120,7 +120,7 @@ mm--;
             printf("%d ",d[i][k]);
         }
      }
-         if(n-1==i2+1){      /* Cycle for add matrix */
+         if(n-1==i2+1){     
         for(i = 0; i < m-1; i++){
             for(j = 0; j < k2+1; j++){
                 f[i][j] = 0;
@@ -130,7 +130,7 @@ mm--;
             }
         }
 
-        printf("\nMatrix 5:\n");
+        printf("\n\n");
 
         for (i = 0; i<m-1; i++){
             printf("\n");
