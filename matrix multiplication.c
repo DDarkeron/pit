@@ -11,17 +11,19 @@ srand((unsigned) time (NULL) );
 
 int m,n,i=0,j,min=101,nn,mm,bif,baf,bef;
 
-
+/*
 m=(3+rand()%7);
-n=(4+rand()%6);
+n=(4+rand()%6);*/
+m=3;
+n=4;
 int a[m][n];
-char b[1000];
+/*char b[1000];*/
 i=0;
 
 printf("random matrix:\n");
     for(i=0;i<m;i++){
         for(j=0;j<n;j++){
-            a[i][j]=-100+rand()%200;
+            a[i][j]=-10+rand()%20;
              printf("%d\t",a[i][j]);
 
 
@@ -85,80 +87,55 @@ mm--;
         }
         printf("\n");/*types new matrix without min column and string*/
     }
-    int l=1;
-   fgets(b,1000,stdin);
-   for(i=0; i<1000;i++){
+    //int l=0;
+    //int p=0;
+    int l;
+    printf("Enter number of columns");
+    scanf("%d", &l);
+    int g[n-1][l];
 
-if(b[i]==' '){i++;}
-if(b[i]==','){l++;i=0;}
-if(b[i]=='.'){break;}
-    }
-if(n!=l)
-    printf("\nWrong matrix\n");
-else
-{
-    int g[n][nn];
-    l=nn=0;
-        for (i=0;i<1000;i++) /*types second new matrix*/
+    for(i = 0; i < n - 1; i ++)
+        for(j = 0; j < l; j ++)
         {
-            if (b[i]==',')
-            {
-                l*=j;
-                g[n++][nn]=l;
-                nn=0;
-                printf("%d",l);
-                printf("\n");
-                j=0;
-                l=0;
-            }
-            if (b[i]=='.')
-            {
-                l*=j;
-                g[n][nn]=l;
-                printf("%d",l);
-                break;
-            }
-            if (b[i]=='-')
-                j=-1;
-            if (b[i]>='0'&&b[i]<='9')
-            {
-                l=10*l+(b[i]-'0');
-                if (j!=-1)
-                    j=1;
-            }
-
-            if (b[i]==' ')
-            {
-                l*=j;
-                g[n][nn++]=l;
-                printf("%d",l);
-                printf("\t");
-                j=0;
-                l=0;
-            }
-
+            g[i][j] = 0;
         }
-        printf("\n_________________________________\n");
-        for (i=0;i<m-1;i++) /*multiply matrixs*/
+    printf("new array's size = [%d][%d]\n", n - 1, l);
+    for(i = 0; i < n - 1; i ++)
+    {
+        for(j = 0; j < l; j ++)
         {
-            for (l=0;l<=nn;l++)
+            printf(">>");
+            scanf("%d", &g[i][j]);
+        }
+        printf("\n");
+    }
+   /*for(i=0; i<1000;i++){
+
+    if(b[i]==' '){i++; continue;}
+    if(b[i]==','){l++;p=0; continue;}
+    if(b[i]=='.'){break;}
+    g[l][p] = b[i];
+    printf("%d\n", b[i]);
+    p++;
+
+   }*/
+    int k;
+    int sum = 0;
+        printf("\n_________________________________\n");
+        for (i=0;i < m-1;i++) /*multiply matrixs*/
+        {
+            for (j=0;j < l;j++)
             {
-                int end=0;
-                for (j=0;j<=n;j++)
+                for (k=0;k < n - 1;k++)
                 {
-                    end+=a[i][j]*g[j][l];
+                    sum+=a[i][k]*g[k][j];
                 }
-                printf("%d\t",end);
+                printf("%d\t",sum);
+                sum = 0;
             }
             printf("\n");
         }
-    }
 
+    return 0;
+}
 
-
-
-
-
-
-
-    return 0;}
