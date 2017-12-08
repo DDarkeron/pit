@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	char file_name[50];
-	char *str; /* для считывания длинной строки из файла */
+	char *str; /*  to read long string from file */
 	int size, count;
 	size = 0;
 	count = 0;
