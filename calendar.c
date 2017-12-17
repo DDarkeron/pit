@@ -104,13 +104,21 @@ int main()
         return -1;
      }
      if ((yyyy/100)%4 == 0)
-        {y = 6; yy = (y + yyyy%100 + (yyyy%100)/4)%7;}
+        {
+         y = 6; yy = (y + yyyy%100 + (yyyy%100)/4)%7;
+     }
      else if((yyyy/100)%4 == 1)
-         {y = 4; yy = (y + yyyy%100 + (yyyy%100)/4)%7;}
+         {
+         y = 4; yy = (y + yyyy%100 + (yyyy%100)/4)%7;
+     }
      else if((yyyy/100)%4 == 2)
-        {y = 2; yy = (y + yyyy%100 + (yyyy%100)/4)%7;}
+        {
+         y = 2; yy = (y + yyyy%100 + (yyyy%100)/4)%7;
+     }
      else if((yyyy/100)%4 == 3)
-        {y = 0; yy = (y + yyyy%100 + (yyyy%100)/4)%7;}
+        {
+         y = 0; yy = (y + yyyy%100 + (yyyy%100)/4)%7;
+     }
      d = (dd + m + yy)%7;
      if (d == 0)
         printf("It is Saturday!");
